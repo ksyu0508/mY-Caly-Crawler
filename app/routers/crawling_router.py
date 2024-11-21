@@ -1,15 +1,14 @@
 # app/routers/example_router.py
 from fastapi import APIRouter
 from pydantic import BaseModel
+from app.crawler import crawl_notice_board
 
 router = APIRouter()
 
-class Item(BaseModel):
-    name: str
-    description: str = None
-    price: float
-    tax: float = None
+class URLItem(BaseModel):
+    url: str = None
 
-@router.post("/items/")
-async def create_item(item: Item):
-    return {"item": item}
+@router.get("/notice/{url}")
+async def create_item(url: str):
+    contents = crawl_notice_board(url)
+    return {"contents": contents}

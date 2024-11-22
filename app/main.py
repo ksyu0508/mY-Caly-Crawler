@@ -10,7 +10,9 @@ app = FastAPI(
 
 app.include_router(crawling_router.router)
 
-
+@app.on_event("startup")
+def startup_event():
+    Base.metadata.create_all(bind=engine)
 
 @app.get("/")
 def read_root():

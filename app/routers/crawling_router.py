@@ -1,14 +1,13 @@
-# app/routers/example_router.py
 from fastapi import APIRouter
 from pydantic import BaseModel
-from app.crawler import crawl_notice_board
+from app.crawlers.common_crawler import crawl_common_notice_board
 
-router = APIRouter()
+# router = APIRouter()
 
-class URLItem(BaseModel):
-    url: str = None
+# class URLItem(BaseModel):
+#     url: str = None
 
-@router.get("/notice/{url}")
-async def create_item(url: str):
-    contents = crawl_notice_board(url)
-    return {"contents": contents}
+# @router.post("/notice")
+# async def create_item(url: URLItem):
+#     contents = crawl_notice_board(url.url)
+#     return {"contents": contents}

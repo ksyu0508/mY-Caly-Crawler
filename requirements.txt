@@ -5,3 +5,8 @@ uvicorn
 requests
 beautifulsoup4
 psycopg2-binary
+easyocr
+apscheduler
+aiohttp
+asyncpg
+sqlalchemy[asyncio]

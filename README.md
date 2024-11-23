@@ -4,5 +4,5 @@ GDSC oTP service mY-Caly team crawling back-end api
 ## Postgres-Container
 Run postgres container with this command
 ```
-docker run --name my-postgres -e POSTGRES_USER=pguser -e POSTGRES_PASSWORD=pgpassword -e POSTGRES_DB=mycaly -p 5432:5432 -d postgres
+docker run --name my-postgres -e POSTGRES_USER=pguser -e POSTGRES_PASSWORD=pgpassword -e POSTGRES_DB=mycaly -v ./postgres-data:/var/lib/postgresql/data -p 5432:5432 -d postgres
 ```

@@ -1,6 +1,6 @@
 # app/main.py
 from fastapi import FastAPI
-from app.routers import crawling_router, test_router
+from app.routers import crawling_router, test_router, search_router
 
 from app.config import Config
 from app.database.db import engine, sync_engine
@@ -14,6 +14,7 @@ scheduler = BackgroundScheduler()
 
 # app.include_router(crawling_router.router)
 app.include_router(test_router.router)
+app.include_router(search_router.router)
 
 def sample_task():
     print("This task runs on a schedule!")
